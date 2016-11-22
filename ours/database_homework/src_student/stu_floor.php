@@ -8,6 +8,7 @@
 <body>
 <?php
 	$floor = $_POST['floor'];
+	global $post_id;
 ?>
 <table width="1110" height="750" border="1" align="center">
   <tr>

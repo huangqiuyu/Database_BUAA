@@ -12,9 +12,12 @@
 	
 	
 	//$id = $_POST["seat_id"];
-	$id = '1_1_2';
+	$arrtime = $_POST[time];  //change on 1:29
+	$post_id = $_POST[post_id];
+	$id = json_decode($post_id);
 	//$curartime = $_POST["arr_time"];
-	$curartime = date('y-m-d',time());
+	$now = time();
+	$curartime = '2016-11-25 10:10:10';
 	
 	
 	
@@ -71,13 +74,50 @@
 	{
 		//违约
 		
-		$insertpsnbc = "insert into psnbc values ('0123456789','stu_id','$intime','迟到')";
 		
-		if($stmt = $mysqli->prepare($insertpsnbc))
+		$max = "select max(bre_rec) from psnbc";
+		if($stmt = $mysqli->prepare($max))
 		{
 			$stmt->execute();//执行查询
+			$stmt->bind_result($result);//绑定结果
+			for($bcnum=0;$stmt->fetch()&&$bcnum<1;$bcnum++)
+				$max = $result;//取出字符串
+			
+			$temp=0;
+			for($i=2;$i<10;$i++)
+			{
+				$temp = $temp*10+intval($max[$i]);
+				echo $temp.'<br />';
+			}
+			
+			
+			$temp+=1;
+			
+			for($i=0,$j=$temp;$j>=1;$i++)
+				$j/=10;
+				
+			for($j=8,$max='sb';$j>$i;$j--)
+				$max = $max.'0';
+			
+			$max = $max.$temp;
+			
+			echo $max.'<br />';
+
+
+			
 			$stmt->close();
-			echo"成功insert违约记录".'<br />';
+			
+			
+			$insertpsnbc = "insert into psnbc values ('$max','stu_id','$intime','迟到')";
+			
+			if($stmt = $mysqli->prepare($insertpsnbc))
+			{
+				$stmt->execute();//执行查询
+				$stmt->close();
+				echo"成功insert违约记录".'<br />';
+				
+			}
+			
 			
 		}
 		
@@ -114,20 +154,68 @@
 	
 	else
 	{
-		
-		$insertord = "insert into ordseat values ('01234567890123456780','$stu_id','$id','$curartime')";
-		
-		if($stmt = $mysqli->prepare($insertord))
+		if($now<$arr)
 		{
-			$stmt->execute();//执行查询
-			$stmt->close();
-			echo"成功insert预约记录".'<br />';
-			
+			echo"预约失败，因为你已经有一条预约记录";
 		}
 		
-		//mysqli_query($db_link,$insertord);
+		else
+		{
+			$max = "select max(con_rec) from ordseat";
+			if($stmt = $mysqli->prepare($max))
+			{
+				$stmt->execute();//执行查询
+				$stmt->bind_result($result);//绑定结果
+				for($bcnum=0;$stmt->fetch()&&$bcnum<1;$bcnum++)
+					$max = $result;//取出字符串
+				
+				$temp=0;
+				for($i=2;$i<20;$i++)
+				{
+					$temp = $temp*10+intval($max[$i]);
+					echo $temp.'<br />';
+				}
+				
+				
+				$temp+=1;
+				
+				for($i=0,$j=$temp;$j>=1;$i++)
+					$j/=10;
+					
+				for($j=18,$max='sc';$j>$i;$j--)
+					$max = $max.'0';
+				
+				$max = $max.$temp;
+				
+				echo $max.'<br />';
+	
+	
+				
+				$stmt->close();
+				
+				
+				$insertord = "insert into ordseat values ('$max','$stu_id','$id','$curartime')";
+			
+				if($stmt = $mysqli->prepare($insertord))
+				{
+					$stmt->execute();//执行查询
+					$stmt->close();
+					echo"成功insert预约记录".'<br />';
+					
+				}
+				
+					
+				//mysqli_query($db_link,$insertord);
+				
+				echo"预约成功".'<br />';
+				
+			}
+			
 		
-		echo"预约成功".'<br />';
+				
+		}
+		
+
 		
 	}
 	

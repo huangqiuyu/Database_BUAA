@@ -33,12 +33,6 @@
 		
 	}
 	
-	/*
-	$result = mysqli_query($db_link,$cmd) or
-		die("team表提取错误！注册失败！<a href='team_login.php')返回</a>");
-		//return；
-	$id_num = mysqli_num_rows($result);
-	*/
 	if($id_num===0){
 		echo"<script>alert('该团队编号不存在！请重新输入！');history.go(-1);</script>"; 
 	}
@@ -57,13 +51,7 @@
 		
 	}
 	
-	/*
-	$result = mysqli_query($db_link,$cmd) or
-		die("team表提取错误！登陆失败！<a href='team_login.php')返回</a>");
-	$id_num = mysqli_num_rows($result);
-	*/
 	if($id_num===0){
-		
 		
 		$cmd = "select team_id from team where team_id = '$id' and team_psw is null";
 		if($stmt = $mysqli->prepare($cmd))
@@ -73,16 +61,9 @@
 			for($id_num=0;$stmt->fetch();$id_num++);
 		
 			$stmt->close();
-			
-			
+					
 		}
 		
-		
-		/*
-		$result = mysqli_query($db_link,$cmd) or
-			die("team表提取错误！登陆失败！<a href='team_login.php')返回</a>");
-		$id_num = mysqli_num_rows($result);
-		*/
 		
 		if($id_num>0){
 			echo"<script>alert('该团队未注册！请注册！');history.go(-1);</script>";
@@ -94,7 +75,6 @@
 		}
 		
 	}
-	
 	
 	else
 	{

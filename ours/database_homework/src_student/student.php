@@ -37,7 +37,7 @@
       </strong></p>
       <p style="text-align: center; font-size: 30px;"><strong><br>
         <label>
-          <input type="radio" name="floor" value="1" id="floor_4">
+          <input type="radio" name="floor" value="1" id="floor_4" <?php echo("checked");//设置m默认?>>	
         一层阅览室</label>
         </strong><br>
     </p></td>

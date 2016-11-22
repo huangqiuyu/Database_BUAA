@@ -1,17 +1,15 @@
 <!doctype html>
 <html>
+
 <head>
 <title>图书馆空间预约系统</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/jquery.seat-charts.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.seat-charts.css">	
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-<?php
-	session_start();
-	global $post_id;
-	//$_SESSION['post_id'] = $post_id;
-?>
+
 <div class="wrapper">
   <div class="container">
     <div id="seat-map">

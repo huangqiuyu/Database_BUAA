@@ -7,6 +7,9 @@
 
 <body>
 <?php
+	
+	session_start();
+	
 	if(empty($_POST['staff_id']) or empty($_POST['staff_pwd'])){
 		echo"<script>alert('管理员账号或密码不能为空!');history.go(-1);</script>";  
 	}

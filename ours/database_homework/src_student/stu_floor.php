@@ -14,30 +14,7 @@
 ?>
 <script src="js/jquery-1.11.0.min.js"></script> 
 <script src="js/jquery.seat-charts.min.js"></script> 
-<script>
-	function check(val)
-	{
-		var id_num = eval(val);
-		if(id_num.length!=1){
-			alert("必须选择一个座位");
-		}
-		else{
-			 var time = prompt("输入预约时间", ""); //将输入的内容赋给变量time
-			 var pattern = /([0|1][0-9]|2[0-3]):([0-5][0-9])/;
-			 if(!pattern.test(time)){
-				 alert("时间格式为XX：XX");
-			 }
-			 else{
-				 $.post("seatorder.php",post_id);
-				 $.post("seatorder.php",time);
-				 alert(post_id);
-				 alert(time);
-				 window.location.href="seatorder.php";
-			 }
-		}
-	}
 
-</script>
 <table width="1110" height="750" border="1" align="center">
   <tr>
     <td height="200" colspan="2"><img src="../images/stuback.png" width="1100" height="200" alt="stu_back"/></td>
@@ -59,8 +36,45 @@
 				  var s=today.getFullYear()+"年"+today.getMonth()+"月"+today.getDate()+"日"+today.getHours()+"时"+today.getMinutes()+"分";
 				  document.write("时间："+s);
 				</script>
-				<p><input type="submit" name="submit" id="submit" value="确认" onClick="check(post_id);"></p> 
+				<p><input type="submit" name="submit" id="submit" value="确认"></p> 
 				</form>
+				<script>
+				 $('#submit').click(function()
+				{
+					var id_num = eval(post_id);
+					if(id_num.length!=1){
+						alert("必须选择一个座位");
+					}
+					else{
+						 var time = prompt("输入预约时间", ""); //将输入的内容赋给变量time
+						 var pattern = /([0|1][0-9]|2[0-3]):([0-5][0-9])/;
+						 if(!pattern.test(time)){
+							 alert("时间格式为XX：XX");
+						 }
+						 else{
+							 $.ajax({
+								type: 'POST',
+								url: 'seatorder.php',
+								data: {val: seat_id}
+								success: function(msg){
+								// msg: php返回内容
+								/* alert(修改成功); */
+								window.location.href="seatorder.php";
+								},
+								error:function(msg){
+								// 提交失败
+									}
+								});
+			//				 $.post("seatorder.php",post_id);
+			//				 $.post("seatorder.php",time);
+			//				 alert(post_id);
+			//				 alert(time);
+			//				 window.location.href="seatorder.php";
+						 }
+					}
+				});
+
+			</script>
 				<div id="legend"></div>
 			</div>
   		</div>

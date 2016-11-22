@@ -16,7 +16,7 @@
 	$pwd = $_POST['stu_pwd'];
 	$cmd = "select * from student where stu_id = '$id'";
 	$result = mysqli_query($db_link,$cmd) or
-		die("student表提取错误！注册失败！<a href='student.php')返回</a>");
+		die("student表提取错误！注册失败！<a href='stu_login.php')返回</a>");
 	$id_num = mysqli_num_rows($result);
 	if($id_num!=1){
 		echo"<script>alert('该学号不存在！请重新输入！');history.go(-1);</script>"; 
@@ -24,7 +24,7 @@
 	
 	$cmd = "select * from student where stu_id = '$id' and stu_psw is null";
 	$result = mysqli_query($db_link,$cmd) or
-		die("student表提取错误！登陆失败！<a href='student.php')返回</a>");
+		die("student表提取错误！登陆失败！<a href='stu_login.php')返回</a>");
 	$id_num = mysqli_num_rows($result);
 	if($id_num!=0){
 		echo"<script>alert('该学生未注册！请注册！');history.go(-1);</script>";
@@ -32,7 +32,7 @@
 	
 	$cmd = "select * from student where stu_id = '$id' and stu_psw = '$pwd'";
 	$result = mysqli_query($db_link,$cmd) or
-		die("student表提取错误！登陆失败！<a href='student.php')返回</a>");
+		die("student表提取错误！登陆失败！<a href='stu_login.php')返回</a>");
 	$id_num = mysqli_num_rows($result);
 	if($id_num!=1){
 		echo"<script>alert('密码错误！请重新登陆！');history.go(-1);</script>";

@@ -14,7 +14,7 @@
       <div class="front-indicator">管理员处</div>
     </div>
     <div class="booking-details">
-    <form name="getid" method="post" action="sitetemp.php">
+    <form name="getid" method="post" action="seatorder.php">
      <p>&nbsp;</p>
      <p>&nbsp;</p>
      <p>&nbsp;</p>

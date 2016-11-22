@@ -6,7 +6,7 @@
 </head>
  
 <body>
-<?
+<?php
 	$id = $_POST["seat_id"];
 	$curartime = $_POST["arr_time"];
 	
@@ -30,7 +30,17 @@
 	$result = mysqli_query($db_link,$queryintime);
 	$intime = mysql_result($result,1,"in_time");
 	
-	if(intime>(arr_time+30)||intime<arr_time)//30min
+	
+	//转换为时间戳
+	$arr;
+	$arr = strtotime($arrtime);
+	$in;
+	$in = strtotime($intime);
+	
+	$oneminute = 60;
+	
+	
+	if(($in>($arr+30*$oneminute))||$in<$arr)//30min
 	{
 		//违约
 		$bre_rec+=1;
@@ -40,10 +50,10 @@
 		
 	}
 	
+	$oneday = 86400;
+	$curtime = date('y-m-d',(time()-7*$oneday));//获取当前时间的前一周，用于违约比较
 	
-	$curtime = date('y-m-d',time());//获取当前的时间，用于违约比较
-	
-	$querybcnum = "select * from psnbc where psnbc.stu_id='$stu_id' and (psnbc.bre_time+7)<$curtime";
+	$querybcnum = "select * from psnbc where psnbc.stu_id='$stu_id' and (psnbc.bre_time)<$curtime";
 	//查询该学生最近一周的违约记录有多少条
 	
 	$result = mysqli_query($db_link,$querybcnum);

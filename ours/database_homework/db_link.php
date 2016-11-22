@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>图书馆空间预约管理系统</title>
 </head>
-<?
+<?php
 	function db_link(){		//link database
 		$host = "localhost";
 		$user = "root";
 		$pwd = "164421733";
 		$database = "library";
-		$db_link = mysqli_connect($host,$user,$pwd) or
+		$db_link = mysqli_connect($host,$user) or
 		die("link fail <a href='index.php'>return</a>");
 		mysqli_set_charset($db_link,"utf8");
 		if(!mysqli_select_db($db_link,$database))

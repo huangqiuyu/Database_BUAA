@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<?
+<?php
 	$floor = $_POST['floor'];
 ?>
 <table width="1110" height="750" border="1" align="center">
@@ -16,8 +16,8 @@
   <tr>
     <td height="110" width="284" bgcolor="#F8B651" style="color: #FFFFFF">&nbsp;</td>
     <td width="811" rowspan="5" bgcolor="#FCE5C2"><p style="text-align: center; font-size: 30px;">
-    <?
-		include "site.php";
+    <?php
+		include "seat.php";
 	?>
     </td>
   </tr>
@@ -26,7 +26,7 @@
   </tr>
   <tr bgcolor="#F8B651">
     <td height="110" width="284">
-   	<?
+   	<?php
 		echo("第".$floor."层详情");
 	?>
     </td>

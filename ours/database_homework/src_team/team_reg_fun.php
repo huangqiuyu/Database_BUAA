@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>图书馆预约空间系统团队注册</title>
 </head>
-<?
+<?php
 	if(empty($_POST['team_id']) or empty($_POST['team_pwd'])){
 		echo"<script>alert('团队编号或密码不能为空!');history.go(-1);</script>";  
 	}

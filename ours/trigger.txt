@@ -1,0 +1,65 @@
+
+mysql> use library;
+Database changed
+mysql> show triggers;
+Empty set (0.00 sec)
+
+mysql> create trigger psnstatis
+    -> after insert on ordseat
+    -> referencing
+    -> NEW TABLE AS DELTA
+    -> FOR EACH STATEMENT
+    -> .
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'referencing
+NEW TABLE AS DELTA
+FOR EACH STATEMENT
+.' at line 3
+mysql> create trigger psnstatis
+    -> after insert on ordseat
+    -> referencing
+    -> NEW row AS newtuple
+    -> FOR EACH STATEMENT
+    -> insert into psnstatis values (newtuple.con_rec,NULL,NULL,newtuple.stu_id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'referencing
+NEW row AS newtuple
+FOR EACH STATEMENT
+insert into psnstatis values ' at line 3
+mysql> create trigger psnstatis
+    -> after insert on ordseat
+    -> REFERENCING NEW ROW AS newtuple
+    -> FOR EACH STATEMENT
+    -> insert into psnstatis values (newtuple.con_rec,NULL,NULL,newtuple.stu_id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCING NEW ROW AS newtuple
+FOR EACH STATEMENT
+insert into psnstatis values ' at line 3
+mysql> create trigger addordseat
+    -> after insert on ordseat
+    -> REFERENCING NEW ROW AS newtuple
+    -> FOR EACH STATEMENT
+    -> insert into psnstatis values (newtuple.con_rec,NULL,NULL,newtuple.stu_id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCING NEW ROW AS newtuple
+FOR EACH STATEMENT
+insert into psnstatis values ' at line 3
+mysql> create trigger psnstatis
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create trigger addordseat
+    -> after insert on ordseat
+    -> REFERENCING NEW ROW AS newtuple
+    -> FOR EACH ROW
+    -> insert into psnstatis values (newtuple.con_rec,NULL,NULL,newtuple.stu_id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCING NEW ROW AS newtuple
+FOR EACH ROW
+insert into psnstatis values (newtu' at line 3
+mysql> create trigger addordseat
+    -> after insert on ordseat
+    -> FOR EACH ROW
+    -> insert into psnstatis values (new.con_rec,NULL,NULL,new.stu_id);
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> create trigger addordroom
+    -> after insert on ordroom
+    -> FOR EACH ROW
+    -> insert into teamstatis values (new.con_rec,NULL,NULL,new.team_id);
+Query OK, 0 rows affected (0.08 sec)

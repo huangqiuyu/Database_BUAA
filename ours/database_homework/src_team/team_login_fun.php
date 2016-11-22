@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<?
+<?php
 	if(empty($_POST['team_id']) or empty($_POST['team_pwd'])){
 		echo"<script>alert('团队编号号或密码不能为空!');history.go(-1);</script>";  
 	}

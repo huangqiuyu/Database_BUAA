@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<?
+<?php
 	if(empty($_POST['stu_id']) or empty($_POST['stu_pwd'])){
 		echo"<script>alert('学号或密码不能为空!');history.go(-1);</script>";  
 	}

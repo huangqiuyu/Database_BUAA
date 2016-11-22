@@ -22,7 +22,7 @@
         <input type="password" name="team_pwd" id="password" style="height: 24px">
     </p>
     <p>
-      <input name="register" type="submit" id="submit" formmethod="POST" value="注册" style="width: 85px; height: 35px;background-color:#32B16C;font-size: 18px;color: #FFFFFF">
+      <input name="register" type="submit" id="submit" formmethod="POST" value="注册" style="width:85px;height:35px;background-color:#00B7EF;font-size: 18px;color: #FFFFFF">
     </p></td>
   </tr>
   </form>

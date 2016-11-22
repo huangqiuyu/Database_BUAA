@@ -9,33 +9,68 @@
 		echo"<script>alert('学号或密码不能为空!');history.go(-1);</script>";  
 	}
 	include "../db_link.php";
-	$db_link = db_link();
+	$mysqli = db_link();
+	
 	$id = $_POST['stu_id'];
 	$pwd = $_POST['stu_pwd'];
-	$cmd = "select * from student where stu_id = '$id'";
+	
+	$result;
+	
+	$cmd = "select stu_id from student where stu_id = '$id'";
+	if($stmt = $mysqli->prepare($cmd))
+	{
+		$stmt->execute();//执行查询
+		$stmt->bind_result($result);//绑定结果
+		for($id_num=0;$stmt->fetch();$id_num++);
+		$stmt->close();
+		
+		
+	}
+	
+	/*
 	$result = mysqli_query($db_link,$cmd) or
 		die("student表提取错误！注册失败！<a href='stu_login.php')返回</a>");
 	$id_num = mysqli_num_rows($result);
-	if($id_num!=1){
+	*/
+	if($id_num===0){
 		echo"<script>alert('该学号不存在！请重新输入！');history.go(-1);</script>"; 
 	}
 	
-	$cmd = "select * from student where stu_id = '$id' and stu_psw is not null";
+	$cmd = "select stu_id from student where stu_id = '$id' and stu_psw is not null";
+	
+	if($stmt = $mysqli->prepare($cmd))
+	{
+		$stmt->execute();//执行查询
+		$stmt->bind_result($result);//绑定结果
+		for($id_num=0;$stmt->fetch();$id_num++);
+		$stmt->close();
+		
+		
+	}
+	/*
 	$result = mysqli_query($db_link,$cmd) or
 		die("student表提取错误！注册失败！<a href='stu_login.php')返回</a>");
 	$id_num = mysqli_num_rows($result);
-	if($id_num!=0){
+	*/
+	
+	if($id_num===1){
 		echo"<script>alert('该学生已注册！请直接登陆'); window.location.href='stu_login.php';</script>";
 	}
 	
 	$cmd = "update student set stu_psw = '$pwd' where stu_id = '$id'";
-	mysqli_query($db_link,$cmd);
-	if(mysqli_affected_rows($db_link)==1){
+	
+	if($stmt = $mysqli->prepare($cmd))
+	{
+		$stmt->execute();//执行
+		$stmt->close();
 		echo "<script language='javascript' type='text/javascript'>";
 		echo "alert('注册成功！');";
 		echo "window.location.href='stu_login.php'";
 		echo "</script>";
+		
 	}
+	
+	
 	else{
 		echo "<script language='javascript' type='text/javascript'>";
 		echo "alert('注册失败！');";

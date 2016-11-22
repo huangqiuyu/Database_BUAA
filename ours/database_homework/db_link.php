@@ -8,14 +8,21 @@
 	function db_link(){		//link database
 		$host = "localhost";
 		$user = "root";
-		$pwd = "164421733";
+		$pwd = "";
 		$database = "library";
-		$db_link = mysqli_connect($host,$user) or
-		die("link fail <a href='index.php'>return</a>");
-		mysqli_set_charset($db_link,"utf8");
-		if(!mysqli_select_db($db_link,$database))
-			echo "<script>alert('链接数据库失败')</script>";
-		return $db_link;
+		
+		
+		$mysqli=new mysqli($host,$user,$pwd,$database);
+		//设置mysqli编码
+		mysqli_query($mysqli,"SET NAMES utf8");
+		//检查连接是否被创建
+		if (mysqli_connect_errno()) {
+			printf("Connect failed: %s\n", mysqli_connect_error());
+			exit();
+		} 
+		
+		return $mysqli;
+		
 	}
 ?>
 <body>

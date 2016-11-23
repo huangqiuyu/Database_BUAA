@@ -13,7 +13,7 @@
   </tr>
   <tr>
     <td height="110" width="284" bgcolor="#F8B651" style="color: #FFFFFF">&nbsp;</td>
-    <td width="811" rowspan="5" bgcolor="#FCE5C2">
+    <td width="811" rowspan="3" bgcolor="#FCE5C2">
 	<table border="1" align="center">
 		<th>学号</th><th>姓名</th><th>性别</th><th>手机号</th><th>系号</th><th>注册日期</th>
 		<?PHP
@@ -37,6 +37,8 @@
 			$stmt->close();
 		?>
    	</table>
+	<p>&nbsp;</p>
+	<p style="text-align: center">&nbsp;</p>
     </td>
   </tr>
   <tr bgcolor="#F8B651">
@@ -47,9 +49,17 @@
   </tr>
   <tr bgcolor="#FAD294">
     <td height="110" width="284" onClick="window.location.href='stu_record.php'">我的预约</td>
+    <form method="post" action="stu_psw.php">
+    <td width="811" bgcolor="#FCE5C2"><label for="textfield">修改密码:</label>
+    <input type="password" name="password" id="password">
+		<input type="submit" name="submit" id="submit" value="提交"></td></form>
   </tr>
   <tr  bgcolor="#F8B651">
     <td height="110"width="284">&nbsp;</td>
+     <form method="post" action="stu_pho.php">
+    <td width="811" bgcolor="#FCE5C2"><label for="textfield2">修改电话:</label>
+    <input type="text" name="phone" id="phone">
+		<input type="submit" name="submit2" id="submit2" value="提交"></td></form>
   </tr>
 </table>
 </body>

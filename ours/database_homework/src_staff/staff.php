@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <td height="110" width="284" bgcolor="#00B7EF" style="color: #FFFFFF">&nbsp;</td>
-    <td width="810" rowspan="5" bgcolor="#9FE8FF">
+    <td width="810" rowspan="3" bgcolor="#9FE8FF">
 		<table border="1" align="center">
 		<th>管理员工号</th><th>姓名</th><th>性别</th><th>手机号</th><th>注册日期</th>
 		<?PHP
@@ -52,7 +52,9 @@
 			
 		?>
    	</table>
-  </tr>
+		<p>&nbsp;</p>
+		<p style="text-align: center">&nbsp;</p>
+    </tr>
   <tr bgcolor="#00B7EF">
     <td width="284" height="110">管理员信息</td>
   </tr>
@@ -61,9 +63,17 @@
   </tr>
   <tr bgcolor="#72D7A0">
     <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff_team.php'">查询团队记录</td>
+    <form method="post" action="staff_psw.php">
+    <td width="810" bgcolor="#9FE8FF"><label for="textfield">修改密码:</label>
+    <input type="password" name="password" id="password">
+		<input type="submit" name="submit" id="submit" value="提交">    </td> </form>       
   </tr>
   <tr  bgcolor="#00B7EF">
     <td height="110">&nbsp;</td>
+    <form method="post" action="staff_pho.php">
+    <td width="810" bgcolor="#9FE8FF"><label for="textfield2">修改电话:</label>
+    <input type="text" name="phone" id="textfield2">
+    <input type="submit" name="submit2" id="submit2" value="提交">      </td> </form>        
   </tr>
 </table>
 </body>

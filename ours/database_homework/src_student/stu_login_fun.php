@@ -7,6 +7,8 @@
 
 <body>
 <?php
+	session_start();
+	
 	if(empty($_POST['stu_id']) or empty($_POST['stu_pwd'])){
 		echo"<script>alert('学号或密码不能为空!');history.go(-1);</script>";  
 	}
@@ -102,10 +104,6 @@
 		
 	}
 	
-
-	
-	//printf("id_num%d\n",++$id_num);
-	//echo "id_num".$id_num;
 	
 	
 ?>

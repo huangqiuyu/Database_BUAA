@@ -12,11 +12,12 @@
   </tr>
   <tr>
     <td height="110" width="284" bgcolor="#00B7EF" style="color: #FFFFFF">&nbsp;</td>
+    <form method="post" action="staff_team_record.php">
     <td width="810" rowspan="5" bgcolor="#9FE8FF" align="center"><p style="text-align: center; font-size: 20px;">
-    <label for="textfield">输入学号:</label>
-      <input type="text" name="textfield" id="textfield" size="30" height="30">
+    <label for="team_id">输入团体编号：:</label>
+      <input type="text" name="team_id" id="team_id" size="30" height="30">
       </p >
-      <input type="submit" name="submit" id="submit"  value="提交" style="text-align: center; font-size: 15px;width: 85px; height: 35px;background-color:#00B7EF"> </td>
+      <input type="submit" name="submit" id="submit"  value="提交" style="text-align: center; font-size: 15px;width: 85px; height: 35px;background-color:#00B7EF"> </td> </form>
   </tr>
   <tr bgcolor="#72D7A0">
     <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff.php'">管理员信息</td>

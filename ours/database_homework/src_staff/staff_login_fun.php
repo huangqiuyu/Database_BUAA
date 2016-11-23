@@ -7,6 +7,9 @@
 
 <body>
 <?php
+	
+	session_start();
+	
 	if(empty($_POST['staff_id']) or empty($_POST['staff_pwd'])){
 		echo"<script>alert('管理员账号或密码不能为空!');history.go(-1);</script>";  
 	}
@@ -79,8 +82,8 @@
 	
 	else
 	{
-		$_SESSION['staff_id'] = $id;
-		$_SESSION['staff_pwd'] = $pwd;
+		$_SESSION["staff_id"] = $id;
+		$_SESSION["staff_pwd"] = $pwd;
 		
 		echo "<script language='javascript' type='text/javascript'>";
 		echo "window.location.href='staff.php'";

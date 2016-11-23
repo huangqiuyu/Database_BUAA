@@ -16,7 +16,7 @@
     <a href="../src_student/stu_login.php"><img src="../images/student.png" alt="student" width="370" height="280" /></a>
 	</td>
     <td width="370" bgcolor="#32B16C"><a href="../src_team/team_login.php"><img src="../images/team.png" alt="team" width="370" height="280" /></a></td>
-    <form name="stu_sign" method="post" action="staff.php">
+    <form name="stu_sign" method="post" action="staff_login_fun.php">
     <td align="center" width="370" bgcolor="#85E2FF">
 	<p>账&nbsp;&nbsp;号：
       <input name="staff_id" type="text" size="20" style="height: 20px"/>

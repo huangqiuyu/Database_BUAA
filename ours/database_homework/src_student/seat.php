@@ -10,12 +10,20 @@
 
 <body>
 
+<?php
+	session_start();
+	global $post_id;
+	//$_SESSION['post_id'] = $post_id;
+?>
+
+
 <div class="wrapper">
   <div class="container">
     <div id="seat-map">
       <div class="front-indicator">管理员处</div>
     </div>
     <div class="booking-details">
+    <form name="getid" method="post" action="seatorder.php">
      <p>&nbsp;</p>
      <p>&nbsp;</p>
      <p>&nbsp;</p>

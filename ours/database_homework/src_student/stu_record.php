@@ -13,7 +13,51 @@
   <tr>
     <td height="110" width="284" bgcolor="#F8B651" style="color: #FFFFFF">&nbsp;</td>
     <td width="811" rowspan="5" bgcolor="#FCE5C2"><p style="text-align: center; font-size: 30px;">
-
+ <table border="1", align="center">
+        
+        <tr><th>预约记录编号</th><th>学号</th><th>座位编号</th><th>预约时间</th></tr>
+        <?php
+			
+			include "../db_link.php";
+			$mysqli = db_link();
+			
+			$sum=0;
+	 		session_start();
+			$id = $_SESSION['stu_id'];
+			
+			$cmd = "select * from ordseat where stu_id = '$id'";
+			
+			if($stmt = $mysqli->prepare($cmd))
+			{
+				$stmt->execute();//执行查询
+				$stmt->bind_result($con_rec,$stu_id,$seat_id,$arr_time);//绑定结果
+				while($stmt->fetch())
+				{
+					echo "<tr><td>";
+					echo $con_rec.'</td><td>';
+					echo $stu_id.'</td><td>';
+					echo $seat_id.'</td><td>';
+					echo $arr_time.'</td><td>';
+					$sum++;
+				}
+				
+				if($sum===0)
+				{
+					echo "<tr><td>";
+					echo '无</td><td>';
+					echo '无</td><td>';
+					echo '无</td><td>';
+					echo '无</td><td>';
+				}
+				
+				
+				$stmt->close();
+				
+				
+			}
+			
+        ?>
+        </table>
     </td>
   </tr>
   <tr bgcolor="#FAD294">

@@ -14,7 +14,7 @@
     <td height="110" width="284" bgcolor="#00B7EF" style="color: #FFFFFF">&nbsp;</td>
     <form method="post" action="staff_stu_record.php">
     <td width="810" rowspan="5" bgcolor="#9FE8FF" align="center"><p style="text-align: center; font-size: 20px;">
-    <label for="stu_id">输入团体编号:</label>
+    <label for="stu_id">输入学号：</label>
       <input type="text" name="stu_id" id="stu_id" size="30" height="30">
       </p >
     <input type="submit" name="submit" id="submit"  value="提交" style="text-align: center; font-size: 15px;width: 85px; height: 35px;background-color:#00B7EF"> </td>  </form>         

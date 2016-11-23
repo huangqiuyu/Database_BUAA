@@ -33,6 +33,7 @@
 			{
 			 echo "<tr><td>".$team_id."</td><td>".$team_pro."</td><td>".$team_pho."</td><td>".$team_cre."</td><td>";
 			}
+			$stmt->close();
 		?>
    		</table>
     </td>

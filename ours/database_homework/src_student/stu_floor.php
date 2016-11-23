@@ -9,11 +9,78 @@
 </head>
 
 <body>
-<?php
-	$floor = $_POST['floor'];
-?>
+
 <script src="js/jquery-1.11.0.min.js"></script> 
 <script src="js/jquery.seat-charts.min.js"></script> 
+<script>
+	function check(val)
+	{
+		var id_num = eval(val);
+		if(id_num.length!=1){
+			alert("必须选择一个座位");
+		}
+		else{
+			  time = prompt("输入预约时间", ""); //将输入的内容赋给变量time
+			 var pattern = /([0|1][0-9]|2[0-3]):([0-5][0-9])/;
+			 if(!pattern.test(time)){
+				 alert("时间格式为XX：XX");
+			 }
+			// else{
+				var postForm = document.createElement("form");//表单对象
+				postForm.method="post" ;
+				postForm.action = 'seatorder.php';
+				
+				var postidInput = document.createElement("input");
+				postidInput.setAttribute("name", "post_id");
+				postidInput.setAttribute("value", post_id);
+				postForm.appendChild(postidInput); 
+				
+				var timeInput = document.createElement("input");
+				timeInput.setAttribute("name", "time");
+				timeInput.setAttribute("value", time);
+				postForm.appendChild(timeInput); 
+				
+				document.body.appendChild(postForm);
+				postForm.submit();
+				document.body.removeChild(postForm);
+				 
+				 /*
+				 var nameid="nameid",valueid=post_id;
+				 var nametime="nametime",valuetime=time;
+				 document.cookie=nameid+"="+valueid+";";
+				 document.cookie=nametime+"="+valuetime+";";
+				 */
+				 
+				// window.location.href="seatorder.php";
+			// }
+		}
+	}
+
+</script>
+
+
+<?php
+	session_start();
+	$floor = $_POST['floor'];
+	
+	/*
+	print_r($_POST);echo 'postid:'.'<br />';
+	print_r($_POST['time']);echo 'posttime:'.'<br />';
+	
+	$id = $_POST['post_id'];
+	$curartime = $_POST['time'];
+	echo 'id:'.$id.'<br />';
+	echo 'time:'.$curartime.'<br />';
+	*/
+	/*
+	$post_id=$_COOKIE['nameid'];
+	$time=$_COOKIE['nametime'];;
+	
+	$_SESSION["post_id"] = $post_id;
+	$_SESSION["time"] = $time;
+	*/
+	
+?>
 
 <table width="1110" height="750" border="1" align="center">
   <tr>
@@ -21,6 +88,7 @@
   </tr>
   <tr>
     <td height="110" width="284" bgcolor="#F8B651" style="color: #FFFFFF">&nbsp;</td>
+    
     <td width="811" rowspan="5" bgcolor="#FCE5C2"><p style="text-align: center; font-size: 30px;">
     <div class="wrapper">
   		<div class="container">
@@ -36,46 +104,11 @@
 				  var s=today.getFullYear()+"年"+today.getMonth()+"月"+today.getDate()+"日"+today.getHours()+"时"+today.getMinutes()+"分";
 				  document.write("时间："+s);
 				</script>
-				<p><input type="submit" name="submit" id="submit" value="确认"></p> 
-				</form>
-				<script>
-				 $('#submit').click(function()
-				{
-					var id_num = eval(post_id);
-					if(id_num.length!=1){
-						alert("必须选择一个座位");
-					}
-					else{
-						 var time = prompt("输入预约时间", ""); //将输入的内容赋给变量time
-						 var pattern = /([0|1][0-9]|2[0-3]):([0-5][0-9])/;
-						 if(!pattern.test(time)){
-							 alert("时间格式为XX：XX");
-						 }
-						 else{
-							 $.ajax({
-								type: 'POST',
-								url: 'seatorder.php',
-								data: {val: seat_id}
-								success: function(msg){
-								// msg: php返回内容
-								/* alert(修改成功); */
-								window.location.href="seatorder.php";
-								},
-								error:function(msg){
-								// 提交失败
-									}
-								});
-			//				 $.post("seatorder.php",post_id);
-			//				 $.post("seatorder.php",time);
-			//				 alert(post_id);
-			//				 alert(time);
-			//				 window.location.href="seatorder.php";
-						 }
-					}
-				});
-
-			</script>
-				<div id="legend"></div>
+				<p>
+                <input type="submit" name="submit" id="submit" value="确认" onclick="check(seat_id)"></p>
+                
+              
+                    <div id="legend"></div>
 			</div>
   		</div>
 	</div>	

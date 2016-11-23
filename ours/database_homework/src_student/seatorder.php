@@ -10,14 +10,67 @@
 	include "../db_link.php";
 	$mysqli = db_link();
 	
+	//if(isset($_POST['submit'])){
+		//$id = $_GET['test'];
+		
+		//$curartime;// = $_GET['ttime'];
+	//}
+	/*
+	session_start();
+	$id = $_SESSION['post_id'];
+	$curartime = $_SESSION['time'];
+	*/
 	
-	//$id = $_POST["seat_id"];
-	$arrtime = $_POST[time];  //change on 1:29
-	$post_id = $_POST[post_id];
+	
+	//print_r($_POST);echo 'postid:'.'<br />';
+	//print_r($_POST['time']);echo 'posttime:'.'<br />';
+	
+	$temp;
+	$curartime;
+	
+	$temp = $_POST['post_id'];
+	$curartime = $_POST['time'];
+	
+	$id='';
+	$size;
+	$size = strlen($temp);
+	
+	
+	for($i=0;$i<$size;$i++)
+	{
+		if($temp[$i]!=='['&&$temp[$i]!=='"'&&$temp[$i]!==']')
+		{
+			
+			$id = $id.$temp[$i];
+		}
+		
+		
+	}
+	
+	$daytime = date('y-m-d',time());
+	$curartime = '20'.$daytime.' '.$curartime.':00';
+	
+	
+	//echo 'id:'.$id.'<br />';
+	//echo 'time:'.$curartime.'<br />';
+	
+	$now = time();
+	
+	//echo 'id:'.$id.'<br />';
+	//echo 'curtime'.$curartime.'<br />';
+	
+	/*
+	$post_id = $_GET['post_id'];
 	$id = json_decode($post_id);
+	
+	$now = time();
+	$curartime = $_GET['time'];
+	*/
+	/*
+	$id = '1_1_2';
 	//$curartime = $_POST["arr_time"];
 	$now = time();
-	$curartime = '2016-11-25 10:10:10';
+	$curartime = '2016-11-25 10:10:10';*/
 	
 	
 	
@@ -87,7 +140,7 @@
 			for($i=2;$i<10;$i++)
 			{
 				$temp = $temp*10+intval($max[$i]);
-				echo $temp.'<br />';
+				//echo $temp.'<br />';
 			}
 			
 			
@@ -101,7 +154,7 @@
 			
 			$max = $max.$temp;
 			
-			echo $max.'<br />';
+			//echo $max.'<br />';
 
 
 			
@@ -173,7 +226,7 @@
 				for($i=2;$i<20;$i++)
 				{
 					$temp = $temp*10+intval($max[$i]);
-					echo $temp.'<br />';
+					//echo $temp.'<br />';
 				}
 				
 				
@@ -187,7 +240,7 @@
 				
 				$max = $max.$temp;
 				
-				echo $max.'<br />';
+				//echo $max.'<br />';
 	
 	
 				
@@ -222,7 +275,7 @@
 	
 	
 	
-	echo($id);
+	//echo($id);
 	
 	
 ?>

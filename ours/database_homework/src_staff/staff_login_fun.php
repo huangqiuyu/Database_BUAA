@@ -82,8 +82,8 @@
 	
 	else
 	{
-		$_SESSION['staff_id'] = $id;
-		$_SESSION['staff_pwd'] = $pwd;
+		$_SESSION["staff_id"] = $id;
+		$_SESSION["staff_pwd"] = $pwd;
 		
 		echo "<script language='javascript' type='text/javascript'>";
 		echo "window.location.href='staff.php'";

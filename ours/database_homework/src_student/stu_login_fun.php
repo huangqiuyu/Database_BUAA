@@ -104,10 +104,6 @@
 		
 	}
 	
-
-	
-	//printf("id_num%d\n",++$id_num);
-	//echo "id_num".$id_num;
 	
 	
 ?>

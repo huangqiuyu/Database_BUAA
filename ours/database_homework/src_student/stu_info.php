@@ -34,6 +34,7 @@
 			{
 			 echo "<tr><td>".$stu_id."</td><td>".$stu_name."</td><td>".$stu_sex."</td><td>".$stu_pho."</td><td>".$stu_dep."</td><td>".$stu_exp."</td><tr>";
 			}
+			$stmt->close();
 		?>
    	</table>
     </td>

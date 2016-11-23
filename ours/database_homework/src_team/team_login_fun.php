@@ -54,7 +54,7 @@
 		
 	}
 	
-	if($id_num===0){
+	if(((int)$id_num)===0){
 		
 		$cmd = "select team_id from team where team_id = '$id' and team_psw is null";
 		if($stmt = $mysqli->prepare($cmd))
@@ -81,8 +81,8 @@
 	
 	else
 	{
-		$_SESSION['team_id'] = $id;
-		$_SESSION['team_pwd'] = $pwd;
+		$_SESSION["team_id"] = $id;
+		$_SESSION["team_pwd"] = $pwd;
 		
 		echo "<script language='javascript' type='text/javascript'>";
 		echo "window.location.href='team.php'";

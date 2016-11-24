@@ -130,10 +130,10 @@
 
 	}
 	
-
 	
 	
-	if(($in>($arr+30*$oneminute))||$in<$arr)//30min
+	//进入时间超过30分钟，或到现在还没进去且已经超过30分钟
+	if(($in>($arr+30*$oneminute))||($now>($arr+30*$oneminute)))//30min
 	{
 		//违约
 		
@@ -217,7 +217,6 @@
 	
 	else
 	{
-		
 		
 		if($now<$arr)
 		{

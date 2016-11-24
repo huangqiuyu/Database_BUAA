@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <td height="110" width="284" bgcolor="#32B16C" style="color: #FFFFFF">&nbsp;</td>
-    <td width="811" rowspan="5" bgcolor="#A4E5C2"><p style="text-align: center; font-size: 30px;">
+    <td width="811" rowspan="5" bgcolor="#A4E5C2" align="center">
  	<table border="1", align="center">
         
         <tr><th>预约记录编号</th><th>学号</th><th>座位编号</th><th>开始时间</th><th>持续时长</th></tr>
@@ -60,6 +60,15 @@
 			
         ?>
         </table>
+              <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>
+   <input type="button" name="button" id="button" value="取消未完成预约" onClick="window.location.href='team_del.php'">
+ </p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
     </td>
   </tr>
   <tr bgcolor="#FAD294">

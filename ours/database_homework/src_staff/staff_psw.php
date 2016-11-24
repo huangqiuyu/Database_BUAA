@@ -7,9 +7,25 @@
 
 <body>
 <?php
+
+	include "../db_link.php";
+	$mysqli = db_link();
 	session_start();
-	$password = $_POST['password'];
+
+	
 	$id = $_SESSION['staff_id'];
+	$newpsw = $_POST['password'];
+	
+	$cmd = "update staff set staff_psw=$newpsw where staff_id = '$id'";
+				
+	if($stmt = $mysqli->prepare($cmd))
+	{
+		$stmt->execute();//执行查询
+		
+		$stmt->close();
+		echo '成功修改密码';
+	}
+
 	
 ?>
 

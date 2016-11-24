@@ -7,9 +7,25 @@
 
 <body>
 <?php
+	
+	include "../db_link.php";
+	$mysqli = db_link();
 	session_start();
-	$password = $_POST['phone'];
+	
 	$id = $_SESSION['staff_id'];
+	
+	$newpho = $_POST['phone'];
+	
+	$cmd = "update staff set staff_pho=$newpho where staff_id = '$id'";
+				
+	if($stmt = $mysqli->prepare($cmd))
+	{
+		$stmt->execute();//执行查询
+		
+		$stmt->close();
+		echo '成功修改联系方式';
+	}
+	
 	
 ?>
 </body>

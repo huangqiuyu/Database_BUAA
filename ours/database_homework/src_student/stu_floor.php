@@ -62,23 +62,33 @@
 <?php
 	session_start();
 	$floor = $_POST['floor'];
+
+	include "../db_link.php";
+	$mysqli = db_link();
+	$floor2 = $floor + 1;
+	$ordernum = "select count(seat_id) from seat where seat_id >= $floor and seat_id < $floor2 and seat_sta = '已预定'";
+	$orderseat = "select seat_id from seat where seat_id >= $floor and seat_id < $floor2 and seat_sta = '已预定'";
+	$order_id = array();
+	$idnum;
+	$temp;
 	
-	/*
-	print_r($_POST);echo 'postid:'.'<br />';
-	print_r($_POST['time']);echo 'posttime:'.'<br />';
+	if($stmt = $mysqli->prepare($orderseat))
+	{
+		$stmt->execute();//执行查询
+		$stmt->bind_result($temp);//绑定结果	
+		while($stmt->fetch()){
+		for($i=0;$i<strlen($temp);$i++)
+			if($temp[$i]==='_')
+				break;
+		$temp_id = '';
+		for($i=$i+1;$i<strlen($temp);$i++)
+			$temp_id = $temp_id.$temp[$i];
+			array_push($order_id,$temp_id);
+		}
+		
+	}
 	
-	$id = $_POST['post_id'];
-	$curartime = $_POST['time'];
-	echo 'id:'.$id.'<br />';
-	echo 'time:'.$curartime.'<br />';
-	*/
-	/*
-	$post_id=$_COOKIE['nameid'];
-	$time=$_COOKIE['nametime'];;
-	
-	$_SESSION["post_id"] = $post_id;
-	$_SESSION["time"] = $time;
-	*/
+	$order_mes = json_encode($order_id);
 	
 ?>
 
@@ -114,6 +124,7 @@
 	</div>	
 	<script>
 			floor = <?php echo $floor; ?>;
+			order_mes = <?php echo $order_mes; ?>;
 			var seat_id = new Array();
 			$(document).ready(function() {
 				var $cart = $('#selected-seats'),
@@ -187,7 +198,7 @@
 				});
 
 				//let's pretend some seats have already been booked
-				sc.get(['1_6', '4_1', '7_1', '7_2']).status('unavailable');
+				sc.get(order_mes).status('unavailable');
 		
 		});	
 

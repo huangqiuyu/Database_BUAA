@@ -31,7 +31,7 @@
 
 			while($stmt->fetch())//将result结果集中查询结果取出一条
 			{
-			 echo "<tr><td>".$team_id."</td><td>".$team_pro."</td><td>".$team_pho."</td><td>".$team_cre."</td><td>";
+			 echo "<tr><td>".$team_id."</td><td>".$team_pro."</td><td>".$team_pho."</td><td>".$team_cre."</td><tr>";
 			}
 			$stmt->close();
 		?>

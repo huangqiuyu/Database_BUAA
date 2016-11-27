@@ -40,7 +40,7 @@
 					echo $con_rec.'</td><td>';
 					echo $stu_id.'</td><td>';
 					echo $seat_id.'</td><td>';
-					echo $arr_time.'</td><td>';
+					echo $arr_time.'</td><tr>';
 					$sum++;
 				}
 				
@@ -50,7 +50,7 @@
 					echo '无</td><td>';
 					echo '无</td><td>';
 					echo '无</td><td>';
-					echo '无</td><td>';
+					echo '无</td><tr>';
 				}
 				
 				

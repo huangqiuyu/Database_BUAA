@@ -39,7 +39,7 @@
 					echo $team_id.'</td><td>';
 					echo $room_id.'</td><td>';
 					echo $start_time.'</td><td>';
-					echo $duration.'</td><td>';
+					echo $duration.'</td><tr>';
 					$sum++;
 				}
 				
@@ -50,7 +50,7 @@
 					echo '无</td><td>';
 					echo '无</td><td>';
 					echo '无</td><td>';
-					echo '无</td><td>';
+					echo '无</td><tr>';
 				}
 						
 				$stmt->close();

@@ -153,7 +153,7 @@
 			{
 				$stmt->execute();//执行查询
 				$stmt->close();
-				echo"成功insert违约记录".'<br />';
+				//echo"成功insert违约记录".'<br />';
 				
 			}
 			
@@ -242,7 +242,7 @@
 				{
 					$stmt->execute();//执行查询
 					$stmt->close();
-					echo"成功insert预约记录".'<br />';
+					//echo"成功insert预约记录".'<br />';
 					
 				}
 				

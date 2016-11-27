@@ -29,10 +29,17 @@
 	}
 	
 	$now = time();
+	//echo date('y-m-d h:m:s',$now).'<br />';
+	//echo date('y-m-d h:m:s',$arr).'<br />';
+	
+	//echo $now.'<br />';
+	//echo $arr.'<br />';
+	
+	//echo $id.'<br />';
 	
 	if($now<$arr)
 	{
-		$cmd = "delect from ordseat where ordseat.con_rec=(select max(con_rec) from ordseat where ordseat.stu_id='$id')";
+		$cmd = "delete from ordseat where con_rec in (select * from (select max(con_rec) as col1 from ordseat where ordseat.stu_id='$id') as tmp)";
 		
 		if($stmt = $mysqli->prepare($cmd))
 		{
@@ -42,6 +49,11 @@
 			echo "alert('成功取消未完成预约！');";
 			echo "window.location.href='stu_record.php'";
 			echo "</script>";
+		}
+		else
+		
+		{
+			echo '无法删除';	
 		}
 		
 	}

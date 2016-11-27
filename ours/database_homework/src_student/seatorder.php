@@ -265,13 +265,18 @@
 					$stmt->execute();//执行查询
 					$stmt->close();
 					//echo"成功insert预约记录".'<br />';
+					echo"预约成功".'<br />';
 					
+				}
+				else
+				{
+					echo"预约失败".'<br />';
 				}
 				
 					
 				//mysqli_query($db_link,$insertord);
 				
-				echo"预约成功".'<br />';
+				
 				
 			}
 			

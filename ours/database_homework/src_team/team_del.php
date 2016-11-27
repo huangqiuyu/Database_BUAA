@@ -17,6 +17,7 @@
 	$arr;
 	
 	$cmd = "select start_time from ordroom where ordroom.con_rec=(select max(con_rec) from ordroom where ordroom.team_id='$id')";
+	
 			
 	if($stmt = $mysqli->prepare($cmd))
 	{
@@ -34,7 +35,7 @@
 	
 	if($now<$arr)
 	{
-		$cmd = "delect from ordroom where ordroom.con_rec=(select max(con_rec) from ordroom where ordroom.team_id='$id')";
+		$cmd = "delect from ordroom where ordroom.con_rec in (select * from (select max(con_rec) as col1 from ordroom where ordroom.team_id='$id') as tmp)";
 		
 		if($stmt = $mysqli->prepare($cmd))
 		{
@@ -45,7 +46,11 @@
 			echo "window.location.href='team_record.php'";
 			echo "</script>";
 		}
+		else
 		
+		{
+			echo '无法删除';	
+		}
 	}
 	
 	else

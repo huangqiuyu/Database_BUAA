@@ -21,7 +21,10 @@
 		$stmt->execute();//执行查询
 		
 		$stmt->close();
-		echo '成功修改联系方式';
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('成功修改联系方式！');";
+		echo "window.location.href='stu_info.php'";
+		echo "</script>";
 	}
 
 	

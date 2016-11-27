@@ -69,23 +69,17 @@
         <a href="staff_team.php">返回</a>
     
       </center>
-    
-    
-    
-    
-    
-    
-    
+   
     </p ></td>
   </tr>
   <tr bgcolor="#72D7A0">
-    <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff.php'">管理员信息</td>
+    <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff.php'" align="center" style="font-size: 20px"><strong>管理员信息</strong></td>
   </tr>
   <tr bgcolor="#32B16C">
-    <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff_stu.php'">查询个人记录</td>
+    <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff_stu.php'" align="center" style="font-size: 20px"><strong>查询个人记录</strong></td>
   </tr>
   <tr bgcolor="#72D7A0">
-    <td width="284" height="110" bgcolor="#00B7EF" >查询团队记录</td>
+    <td width="284" height="110" bgcolor="#00B7EF" align="center" style="font-size: 20px"><strong>查询团队记录</strong></td>
   </tr>
   <tr  bgcolor="#32B16C">
     <td height="110" bgcolor="#00B7EF">&nbsp;</td>

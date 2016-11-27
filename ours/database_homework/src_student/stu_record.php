@@ -73,13 +73,13 @@
     </td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td height="110" width="284" onClick="window.location.href='stu_info.php'">个人信息</td>
+    <td height="110" width="284" onClick="window.location.href='stu_info.php'" align="center" style="font-size: 20px" ><strong>个人信息</strong></td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td height="110" width="284" onClick="window.location.href='student.php'">预约座位</td>
+    <td height="110" width="284" onClick="window.location.href='student.php'" align="center" style="font-size: 20px" ><strong>预约座位</strong></td>
   </tr>
   <tr bgcolor="#F8B651">
-    <td height="110" width="284">我的预约</td>
+    <td height="110" width="284" align="center" style="font-size: 20px" ><strong>我的预约</strong></td>
   </tr>
   <tr  bgcolor="#F8B651">
     <td height="110"width="284">&nbsp;</td>

@@ -8,11 +8,11 @@
 <body>
 <table width="1110" height="750" border="1" align="center">
   <tr>
-    <td height="200" colspan="2"><img src="../images/teamback.png" width="1100" height="200" alt=""/></td>
+    <td height="200" colspan="3"><img src="../images/teamback.png" width="1100" height="200" alt=""/></td>
   </tr>
   <tr>
     <td height="110" width="284" bgcolor="#32B16C" style="color: #FFFFFF">&nbsp;</td>
-    <td width="811" rowspan="3" bgcolor="#A4E5C2">
+    <td width="811" colspan="2" rowspan="3" bgcolor="#A4E5C2">
     	<table border="1" align="center">
 		<th>团队编号</th><th>团队性质</th><th>团队联系电话</th><th>团队成立日期</th>
 		<?PHP
@@ -40,23 +40,27 @@
     <p>&nbsp;</p></td>
   </tr>
   <tr bgcolor="#F8B651">
-    <td width="284" height="110" bgcolor="#32B16C">团队信息</td>
+    <td width="284" height="110" bgcolor="#32B16C" align="center" style="font-size: 20px"><strong>团队信息</strong></td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td width="284" height="110" bgcolor="#72D7A0" onClick="window.location.href='team.php'">预约讨论室</td>
+    <td width="284" height="110" bgcolor="#72D7A0" onClick="window.location.href='team.php'" align="center" style="font-size: 20px"><strong>预约讨论室</strong></td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td width="284" height="110" bgcolor="#72D7A0" onClick="window.location.href='team_record.php'">团队记录</td>
+    <td width="284" height="110" bgcolor="#72D7A0" onClick="window.location.href='team_record.php'" align="center" style="font-size: 20px"><strong>团队记录</strong></td>
     <form method="post" action="team_psw.php">
-    <td width="811" bgcolor="#A4E5C2"><label for="password">修改密码:</label>
+    <td width="404" bgcolor="#A4E5C2"><label for="password">修改密码:</label>
     <input type="password" name="password" id="password">
 		<input type="submit" name="submit" id="submit" value="提交"></td></form>
+   <form method="post" action="team_pho.php">
+    <td width="405" bgcolor="#A4E5C2"><label for="textfield2">修改电话:</label>
+      <input type="text" name="phone" id="phone">
+      <input type="submit" name="submit2" id="submit2" value="提交"></td>
+    </form>
   </tr>
   <tr  bgcolor="#F8B651">
-   <form method="post" action="team_pho.php">
+   
     <td width="284" height="110" bgcolor="#32B16C">&nbsp;</td>
-    <td width="811" bgcolor="#A4E5C2"><label for="textfield2">修改电话:</label>
-<input type="text" name="phone" id="phone">    <input type="submit" name="submit2" id="submit2" value="提交">    </td></form>
+    <td width="811" colspan="2" bgcolor="#A4E5C2">&nbsp;</td>
   </tr>
 </table>
 </body>

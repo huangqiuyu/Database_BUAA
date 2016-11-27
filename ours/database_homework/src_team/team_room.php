@@ -88,13 +88,13 @@
 	</form>      
   </tr>
   <tr bgcolor="#F8B651">
-    <td width="282" height="110" bgcolor="#32B16C">团队信息</td>
+    <td width="282" height="110" bgcolor="#32B16C" align="center" style="font-size: 20px"><strong>团队信息</strong></td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td width="282" height="110" bgcolor="#72D7A0" onClick="window.location.href='team.php'">预约讨论室</td>
+    <td width="282" height="110" bgcolor="#72D7A0" onClick="window.location.href='team.php'" align="center" style="font-size: 20px"><strong>预约讨论室</strong></td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td width="282" height="110" bgcolor="#72D7A0" onClick="window.location.href='team_record.php'">团队记录</td>
+    <td width="282" height="110" bgcolor="#72D7A0" onClick="window.location.href='team_record.php'" align="center" style="font-size: 20px"><strong>团队记录</strong></td>
   </tr>
   <tr  bgcolor="#F8B651">
     <td width="282" height="110" bgcolor="#32B16C">&nbsp;</td>

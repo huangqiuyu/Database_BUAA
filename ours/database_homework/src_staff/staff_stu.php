@@ -20,13 +20,13 @@
     <input type="submit" name="submit" id="submit"  value="提交" style="text-align: center; font-size: 15px;width: 85px; height: 35px;background-color:#00B7EF"> </td>  </form>         
   </tr>
   <tr bgcolor="#5BD8FF">
-    <td width="284" height="110" onClick="window.location.href='staff.php'">管理员信息</td>
+    <td width="284" height="110" onClick="window.location.href='staff.php'" align="center" style="font-size: 20px"><strong>管理员信息</strong></td>
   </tr>
   <tr bgcolor="#00B7EF">
-    <td width="284" height="110">查询个人记录</td>
+    <td width="284" height="110" align="center" style="font-size: 20px"><strong>查询个人记录</strong></td>
   </tr>
   <tr bgcolor="#5BD8FF">
-    <td width="284" height="110" onClick="window.location.href='staff_team.php'">查询团队记录</td>
+    <td width="284" height="110" onClick="window.location.href='staff_team.php'" align="center" style="font-size: 20px"><strong>查询团队记录</strong></td>
   </tr>
   <tr  bgcolor="#00B7EF">
     <td height="110">&nbsp;</td>

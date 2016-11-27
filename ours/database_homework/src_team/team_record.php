@@ -15,7 +15,7 @@
     <td width="811" rowspan="5" bgcolor="#A4E5C2" align="center">
  	<table border="1", align="center">
         
-        <tr><th>预约记录编号</th><th>学号</th><th>座位编号</th><th>开始时间</th><th>持续时长</th></tr>
+        <tr><th>预约记录编号</th><th>团体编号</th><th>讨论室编号</th><th>开始时间</th><th>持续时长</th></tr>
         <?php
 			
 			include "../db_link.php";
@@ -72,13 +72,13 @@
     </td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td width="284" height="110" bgcolor="#72D7A0" onClick="window.location.href='team_info.php'">团队信息</td>
+    <td width="284" height="110" bgcolor="#72D7A0" onClick="window.location.href='team_info.php'" align="center" style="font-size: 20px"><strong>团队信息</strong></td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td width="284" height="110" bgcolor="#72D7A0" onClick="window.location.href='team.php'">预约讨论室</td>
+    <td width="284" height="110" bgcolor="#72D7A0" onClick="window.location.href='team.php'" align="center" style="font-size: 20px"><strong>预约讨论室</strong></td>
   </tr>
   <tr bgcolor="#F8B651">
-    <td width="284" height="110" bgcolor="#32B16C">团队记录</td>
+    <td width="284" height="110" bgcolor="#32B16C" align="center" style="font-size: 20px"><strong>团队记录</strong></td>
   </tr>
   <tr  bgcolor="#F8B651">
     <td width="284" height="110" bgcolor="#32B16C">&nbsp;</td>

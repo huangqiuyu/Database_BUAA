@@ -8,12 +8,12 @@
 <body>
 
 <table width="1110" height="750" border="1" align="center">
-  <tr>
-    <td height="465" colspan="3" bgcolor="#55565B" style="color: #F8B651"><img src="../images/back.png" width="1120" height="465" alt=""/></td>
+  <tr bgcolor="#52453A">
+    <td height="465" colspan="3" style="color: #F8B651"><img src="../images/back.png" width="1120" height="465" alt=""/></td>
   </tr>
   <tr>
     
-    <td width="370" height="285" align="center" bgcolor="#FAD294" style="color: #F8B651">
+    <td width="370" height="285" align="center" bgcolor="#F8B651" style="color: #F8B651">
     <a href="../src_student/stu_login.php"><img src="../images/student.png" alt="student" width="370" height="280" /></a>
 	</td>
    <form name="stu_sign" method="post" action="team_login_fun.php">

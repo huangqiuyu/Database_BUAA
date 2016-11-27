@@ -20,10 +20,10 @@
 			alert("必须选择一个座位");
 		}
 		else{
-			  time = prompt("输入预约时间", ""); //将输入的内容赋给变量time
+			  time = prompt("输入预约时间，格式为XX：XX", ""); //将输入的内容赋给变量time
 			 var pattern = /([0|1][0-9]|2[0-3]):([0-5][0-9])/;
 			 if(!pattern.test(time)){
-				 alert("时间格式为XX：XX");
+				 alert("时间格式错误！");
 			 }
 			// else{
 				var postForm = document.createElement("form");//表单对象
@@ -66,7 +66,6 @@
 	include "../db_link.php";
 	$mysqli = db_link();
 	$floor2 = $floor + 1;
-	$ordernum = "select count(seat_id) from seat where seat_id >= $floor and seat_id < $floor2 and seat_sta = '已预定'";
 	$orderseat = "select seat_id from seat where seat_id >= $floor and seat_id < $floor2 and seat_sta = '已预定'";
 	$order_id = array();
 	$idnum;
@@ -220,17 +219,17 @@
     </td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td height="110" width="284" onClick="window.location.href='stu_info.php'">个人信息</td>
+    <td height="110" width="284" onClick="window.location.href='stu_info.php'" align="center" style="font-size: 20px" ><strong>个人信息</strong></td>
   </tr>
   <tr bgcolor="#F8B651">
-    <td height="110" width="284">
+    <td height="110" width="284" align="center" style="font-size: 20px" ><strong>
    	<?php
 		echo("第".$floor."层详情");
 	?>
-    </td>
+    </strong></td>
   </tr>
   <tr bgcolor="#FAD294">
-    <td height="110" width="284" onClick="window.location.href='stu_record.php'">我的预约</td>
+    <td height="110" width="284" onClick="window.location.href='stu_record.php'" align="center" style="font-size: 20px" ><strong>我的预约</strong></td>
   </tr>
   <tr bgcolor="#F8B651">
     <td height="110"width="284">&nbsp;</td>

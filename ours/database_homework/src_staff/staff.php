@@ -8,11 +8,11 @@
 <body>
 <table width="1110" height="750" border="1" align="center">
   <tr>
-    <td height="200" colspan="3"><img src="../images/staffback.png" width="1100" height="200" alt=""/></td>
+    <td height="200" colspan="4"><img src="../images/staffback.png" width="1100" height="200" alt=""/></td>
   </tr>
   <tr>
     <td height="110" width="284" bgcolor="#00B7EF" style="color: #FFFFFF">&nbsp;</td>
-    <td width="810" rowspan="3" bgcolor="#9FE8FF">
+    <td width="810" colspan="2" rowspan="3" bgcolor="#9FE8FF">
 		<table border="1" align="center">
 		<th>管理员工号</th><th>姓名</th><th>性别</th><th>手机号</th><th>注册日期</th>
 		<?PHP
@@ -56,24 +56,27 @@
 		<p style="text-align: center">&nbsp;</p>
     </tr>
   <tr bgcolor="#00B7EF">
-    <td width="284" height="110">管理员信息</td>
+    <td width="284" height="110" align="center" style="font-size: 20px"><strong>管理员信息</strong></td>
   </tr>
   <tr bgcolor="#32B16C">
-    <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff_stu.php'">查询个人记录</td>
+    <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff_stu.php'" align="center" style="font-size: 20px"><strong>查询个人记录</strong></td>
   </tr>
   <tr bgcolor="#72D7A0">
-    <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff_team.php'">查询团队记录</td>
+    <td width="284" height="110" bgcolor="#5BD8FF" onClick="window.location.href='staff_team.php'" align="center" style="font-size: 20px"><strong>查询团队记录</strong></td>
     <form method="post" action="staff_psw.php">
-    <td width="810" bgcolor="#9FE8FF"><label for="textfield">修改密码:</label>
+    <td width="404" bgcolor="#9FE8FF"><label for="textfield">修改密码:</label>
     <input type="password" name="password" id="password">
-		<input type="submit" name="submit" id="submit" value="提交">    </td> </form>       
+		<input type="submit" name="submit" id="submit" value="提交">    </td></form> 
+   	<form method="post" action="staff_pho.php">
+    <td width="404" bgcolor="#9FE8FF"><label for="textfield2">修改电话:</label>
+      <input type="text" name="phone" id="textfield2">
+      <input type="submit" name="submit2" id="submit2" value="提交"></td>
+    </form>       
   </tr>
   <tr  bgcolor="#00B7EF">
     <td height="110">&nbsp;</td>
-    <form method="post" action="staff_pho.php">
-    <td width="810" bgcolor="#9FE8FF"><label for="textfield2">修改电话:</label>
-    <input type="text" name="phone" id="textfield2">
-    <input type="submit" name="submit2" id="submit2" value="提交">      </td> </form>        
+    
+    <td width="810" colspan="2" bgcolor="#9FE8FF">&nbsp;</td>        
   </tr>
 </table>
 </body>

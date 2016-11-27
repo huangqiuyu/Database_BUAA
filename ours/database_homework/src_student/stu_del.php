@@ -52,15 +52,21 @@
 		}
 		else
 		
-		{
-			echo '无法删除';	
+		{	
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('删除失败！');";
+			echo "window.location.href='stu_record.php'";
+			echo "</script>";	
 		}
 		
 	}
 	
 	else
 	{
-		echo '已经过了预约时的到位时间，所以无法删除';	
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('超过预约时的到位时间，无法删除！');";
+		echo "window.location.href='stu_record.php'";
+		echo "</script>";
 	}
 	
 	

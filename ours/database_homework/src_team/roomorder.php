@@ -10,22 +10,40 @@
 	include "../db_link.php";
 	$mysqli = db_link();
 	session_start();
-	$result;
+	$result="00000000000000";
+	$scadule="";
+	
+	$team_id = $_SESSION['team_id'];
+	$id = $_SESSION['room_id'];
+	
 	if(!empty($_POST["checkbox"])){  
 		$array = $_POST["checkbox"]; 
 		$temp = $array[0];
-		$result = "00000000000000";
+		
+		$cmd = "select room_sch from room where room_id = '$id'";
+	
+		if($stmt = $mysqli->prepare($cmd))
+		{
+			$stmt->execute();//执行查询
+			$stmt->bind_result($temp1);//绑定结果
+			for($id_num=0;$stmt->fetch()&&$id_num<1;$id_num++)
+				$scadule=$temp1;
+
+			$stmt->close();
+
+
+		}
+		
 		$size = count($array); 
 		for($i=0; $i<$size; $i++){  
 			if($array[$i]-$temp>1)
 				echo"<script>alert('所选时间段必须连续！');window.location.href='team.php';</script>";  
 			$temp = $array[$i];
 			$result[$array[$i]]='1';
+			$scadule[$array[$i]]='1';
 		}  
 	}  
 	
-	$team_id = $_SESSION['team_id'];
-	$id = $_SESSION['room_id'];
 	
 	//计算开始时间和预约时长
 	
@@ -68,15 +86,11 @@
 	$queryintime = "select in_time from teaminout where in_time=(select max(in_time) from teaminout where teaminout.team_id='$team_id')";//找到该学生最近一次进入图书馆的时间，用来生成违约记录
 	
 	
-	
-	
-	
 	//转换为时间戳
 	$arr;
 
 	$in;
 
-	
 	if($stmt = $mysqli->prepare($queryordtime))
 	{
 		$stmt->execute();//执行查询
@@ -102,8 +116,6 @@
 		$stmt->close();
 
 	}
-	
-	
 	
 	
 	$oneminute = 60;
@@ -153,13 +165,10 @@
 			{
 				$stmt->execute();//执行查询
 				$stmt->close();
-				//echo"成功insert违约记录".'<br />';
-				
+				//echo"成功insert违约记录".'<br />';			
 			}
-			
-			
-		}
-		
+				
+		}	
 		
 		//mysqli_query($db_link,$insertpsnbc);
 		
@@ -172,7 +181,6 @@
 	
 	$querybcnum = "select team_id from teambc where teambc.team_id='$team_id' and (teambc.bre_time)<$curtime";
 	//查询该学生最近一周的违约记录有多少条
-	
 	
 	
 	if($stmt = $mysqli->prepare($querybcnum))
@@ -190,7 +198,10 @@
 	
 	if($bcnum>=2)
 	{
-		echo"预约失败，因为最近两个月的违约记录超过两条";
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('预约失败，因为最近两个月的违约记录超过两条!');";
+		echo "window.location.href='team.php'";
+		echo "</script>";
 	}
 	
 	else
@@ -198,7 +209,10 @@
 		$now = time();
 		if($now<$arr)
 		{
-			echo"预约失败，因为你已经有一条预约记录";
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('预约失败，因为你已经有一条预约记录!');";
+			echo "window.location.href='team.php'";
+			echo "</script>";
 		}
 		
 		else
@@ -229,10 +243,8 @@
 				
 				$max = $max.$temp;
 				
-				//echo $max.'<br />';
-	
-	
 				
+	
 				$stmt->close();
 				
 				
@@ -243,12 +255,40 @@
 					$stmt->execute();//执行查询
 					$stmt->close();
 					//echo"成功insert预约记录".'<br />';
-					echo"预约成功".'<br />';
 					
+					$insertord = "update room set room_sch='$scadule' where room_id='$id'";
+					if($stmt = $mysqli->prepare($insertord))
+					{
+						$stmt->execute();//执行查询
+						$stmt->close();
+						//echo"成功insert预约记录".'<br />';
+						{
+							echo "<script language='javascript' type='text/javascript'>";
+							echo "alert('预约成功!');";
+							echo "window.location.href='team.php'";
+							echo "</script>";
+						}
+
+						
+
+					}
+					
+					else
+					{
+						
+						echo "<script language='javascript' type='text/javascript'>";
+						echo "alert('预约失败!');";
+						echo "window.location.href='team.php'";
+						echo "</script>";
+						
+					}
 				}
 				else
 				{
-					echo"预约失败".'<br />';
+					echo "<script language='javascript' type='text/javascript'>";
+					echo "alert('预约失败!');";
+					echo "window.location.href='team.php'";
+					echo "</script>";
 				}
 					
 				//mysqli_query($db_link,$insertord);

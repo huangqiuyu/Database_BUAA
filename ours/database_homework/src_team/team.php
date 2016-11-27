@@ -29,13 +29,13 @@
     <span style="text-align: center"></span>    <span style="text-align: center"></span>    <span style="text-align: left"></span>            
   </tr>
   <tr bgcolor="#72D7A0">
-    <td width="283" height="110" onClick="window.location.href='team_info.php'">团队信息</td>
+    <td width="283" height="110" onClick="window.location.href='team_info.php'" align="center" style="font-size: 20px"><strong>团队信息</strong></td>
   </tr>
   <tr bgcolor="#32B16C">
-    <td height="110" width="283">预约讨论室</td>
+    <td height="110" width="283" align="center" style="font-size: 20px"><strong>预约讨论室</strong></td>
   </tr>
   <tr bgcolor="#72D7A0">
-    <td width="283" height="110" onClick="window.location.href='team_record.php'">团队记录</td>
+    <td width="283" height="110" onClick="window.location.href='team_record.php'" align="center" style="font-size: 20px"><strong>团队记录</strong></td>
   </tr>
   <tr  bgcolor="#32B16C">
     <td height="110">&nbsp;</td>

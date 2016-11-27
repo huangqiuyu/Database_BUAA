@@ -35,7 +35,7 @@
 	
 	if($now<$arr)
 	{
-		$cmd = "delect from ordroom where ordroom.con_rec in (select * from (select max(con_rec) as col1 from ordroom where ordroom.team_id='$id') as tmp)";
+		$cmd = "delete from ordroom where ordroom.con_rec in (select * from (select max(con_rec) as col1 from ordroom where ordroom.team_id='$id') as tmp)";
 		
 		if($stmt = $mysqli->prepare($cmd))
 		{
@@ -49,13 +49,19 @@
 		else
 		
 		{
-			echo '无法删除';	
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('取消失败！');";
+			echo "window.location.href='team_record.php'";
+			echo "</script>";	
 		}
 	}
 	
 	else
 	{
-		echo '已经过了预约时的到位时间，所以无法删除';	
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('超过预约时的到位时间，无法删除！');";
+		echo "window.location.href='team_record.php'";
+		echo "</script>";
 	}
 	
 	
